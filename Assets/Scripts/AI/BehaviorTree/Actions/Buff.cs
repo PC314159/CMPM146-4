@@ -5,6 +5,7 @@ public class Buff : BehaviorTree
     public override Result Run()
     {
         var target = GameManager.Instance.GetClosestOtherEnemy(agent.gameObject);
+        if (target == null) return Result.FAILURE;
         EnemyAction act = agent.GetAction("buff");
         if (act == null) return Result.FAILURE;
         
